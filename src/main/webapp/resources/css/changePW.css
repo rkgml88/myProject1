@@ -1,0 +1,79 @@
+@charset "UTF-8";
+section{
+    padding-top: 110px;
+    overflow-x: hidden;
+}
+#contain{
+    padding: 3% 20% 10%;
+}
+#category{
+    color: rgb(16, 15, 80);
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+#main{
+    border: 2px solid rgb(16, 15, 80);
+    padding: 50px 70px 40px;
+}
+#idWrap, #pwWrap{
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+#idWrap{
+    border-radius: 15px 15px 0 0;
+    margin-bottom: 15px;
+}
+input:focus{
+	outline: none;
+}
+#username{
+    font-size: 20px;
+    font-family: 'HANAMDAUM';
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(16, 15, 80);
+}
+#pwWrap p{
+	text-align: center;
+}
+.inp{
+    margin-bottom: 7px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px;
+    border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'HANAMDAUM';
+}
+#bottomRow{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 3px;
+}
+#submitBtn{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: rgb(16, 15, 80);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    font-family: 'HANAMDAUM';
+    cursor: pointer;
+    font-size: 15px;
+}
+.red{
+	font-size: 12px;
+	margin-top: 0;
+	margin-bottom: 5px;
+	color: crimson;
+}

@@ -1,0 +1,112 @@
+@charset "UTF-8";
+section{
+    padding-top: 110px;
+    overflow-x: hidden;
+}
+#contain{
+    padding: 3% 20% 10%;
+}
+#category{
+    color: rgb(16, 15, 80);
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+#main{
+    border: 2px solid rgb(16, 15, 80);
+    padding: 50px 70px 40px;
+}
+#authTabs{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+	gap: 10px;	
+}
+#authTabs button{
+	border: none;
+  	background: none;
+  	font-family: 'HANAMDAUM';
+    cursor: pointer;
+    font-size: 18px;
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+    padding: 3px;
+}
+#authTabs button.active {
+  border-bottom: 5px dashed rgb(16, 15, 80);
+  color: black;
+  -webkit-text-stroke: 0px;
+}
+#telWrap, #emailWrap{
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+h3{
+	margin: 0;
+	font-size: 18px;
+}
+.explain{
+	font-size: 13px;
+	margin-top: 5px;
+	word-break: keep-all; /* 단어 단위로 줄바꿈 */
+    white-space: normal; /* 기본 줄바꿈 허용 */
+    overflow-wrap: break-word; /* 긴 단어가 있으면 자동 줄바꿈 */
+}
+.content{
+	display: flex;
+	align-items: center;
+}
+.tag{
+	width: 100px;
+}
+.inp{
+	flex: 0.5;
+	border: none;
+	border-bottom: 1px solid black;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+input:focus{
+	outline: none;
+}
+#timerDisplayTel,#timerDisplayEmail{
+	font-size: 13px;
+	color: crimson;
+	margin-left: 5px;
+}
+.errMsg{
+	margin-top: 10px;
+}
+#sendTelBtn, #sendEmailBtn, #verifyBtn{   
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: rgb(16, 15, 80);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    font-family: 'HANAMDAUM';
+    cursor: pointer;
+}
+#sendTelBtn, #sendEmailBtn{
+	padding: 7px;
+	font-size: 12px;
+	margin-top: 10px;
+}
+#bottomRow{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 3px;
+}
+#verifyBtn{
+	padding: 10px;
+	font-size: 15px;
+}
+.red{
+	font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 5px;
+	color: crimson;
+}

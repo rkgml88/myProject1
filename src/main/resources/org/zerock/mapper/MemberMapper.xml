@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.MemberMapper">
+
+<select id="existsByUsername" resultType="int">
+	select count(*) from member where username = #{username}
+</select>
+
+<insert id="insertMember">
+	insert into member
+		(username, password, name, tel, email, postcode, address1, address2, role, marketingYn, naverId, googleId)
+	values (#{username}, #{password}, #{name}, #{tel}, #{email}, #{postcode}, 
+			#{address1}, #{address2}, #{role}, #{marketingYn}, #{naverId}, #{googleId})
+</insert>
+
+<select id="findByusername" resultType="org.zerock.domain.MemberDTO">
+	select * from member where username=#{username}
+</select>
+
+<select id="findByNaverId" resultType="org.zerock.domain.MemberDTO">
+	select * from member where naverId=#{naverId}
+</select>
+
+<select id="findByGoogleId" resultType="org.zerock.domain.MemberDTO">
+	select * from member where googleId=#{googleId}
+</select>
+
+<select id="findByAllID" resultType="org.zerock.domain.MemberDTO" parameterType="String">
+    SELECT * FROM member WHERE username=#{allID} OR naverId=#{allID} OR googleId=#{allID}
+</select>
+
+
+<update id="updateMember">
+    UPDATE member
+    SET name=#{name},
+        tel=#{tel},
+        email=#{email},
+        postcode=#{postcode},
+        address1=#{address1},
+        address2=#{address2},
+        marketingYn=#{marketingYn}
+    WHERE username=#{username}
+</update>
+
+<delete id="deleteMember">
+	delete from member where username = #{username}
+</delete>
+
+<select id="findIDByEmail" resultType="string">
+	select username from member where name=#{name} and email=#{email}
+</select>
+
+<select id="findIDByTel" resultType="string">
+	select username from member where name=#{name} and tel=#{tel}
+</select>
+
+<update id="changePWByEmail">
+	update member
+		set password=#{password}
+	where username=#{username} and name=#{name} and email=#{email}
+</update>
+
+<update id="changePWByTel">
+	update member
+		set password=#{password}
+	where username=#{username} and name=#{name} and tel=#{tel}
+</update>
+</mapper>
