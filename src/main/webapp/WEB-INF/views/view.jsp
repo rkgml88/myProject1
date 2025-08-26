@@ -196,7 +196,6 @@
                 data: JSON.stringify({
                     num: num,
                     reply: reply,
-                    replyer: replyer
                 }),
                 success:function(){
                     $('#reply').val('');

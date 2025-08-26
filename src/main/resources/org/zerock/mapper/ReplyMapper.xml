@@ -4,13 +4,13 @@
 
 	<!-- 댓글 목록 가져오기 -->
     <select id="getList" parameterType="int" resultType="org.zerock.domain.ReplyDTO">
-        SELECT * FROM reply WHERE num = #{num} ORDER BY rnum DESC
+        SELECT * FROM reply WHERE num = #{num} ORDER BY rnum asc
     </select>
 
     <!-- 댓글 추가 -->
     <insert id="insert" parameterType="org.zerock.domain.ReplyDTO">
-        INSERT INTO reply (num, reply, replyer, replydate, updatedate)
-        VALUES (#{num}, #{reply}, #{replyer}, NOW(), NOW())
+        INSERT INTO reply (num, reply, replyer, replydate, updatedate, replyerId)
+        VALUES (#{num}, #{reply}, #{replyer}, NOW(), NOW(), #{replyerId})
     </insert>
 
     <!-- 댓글 삭제 -->
@@ -28,7 +28,7 @@
     <select id="getListPage" parameterType="map" resultType="org.zerock.domain.ReplyDTO">
 	    SELECT * FROM reply
 	    WHERE num = #{num}
-	    ORDER BY rnum DESC
+	    ORDER BY rnum asc
 	    LIMIT #{size} OFFSET #{offset}
 	</select>
 	

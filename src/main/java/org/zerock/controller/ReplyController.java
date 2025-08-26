@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.zerock.domain.MemberDTO;
 import org.zerock.domain.ReplyDTO;
+import org.zerock.service.MemberService;
 import org.zerock.service.ReplyService;
 
 @Controller
@@ -23,12 +25,41 @@ import org.zerock.service.ReplyService;
 public class ReplyController {
 	@Autowired
     private ReplyService replyService;
+	
+	@Autowired
+    private MemberService memberService;
 
     // 댓글 리스트 가져오기 (AJAX)
     @GetMapping("/list")
     @ResponseBody
     public List<ReplyDTO> getList(@RequestParam int num) {
         return replyService.getList(num);
+    }
+    
+    // 댓글 페이징
+    @GetMapping("/listPage")
+    @ResponseBody
+    public List<ReplyDTO> getListPage(@RequestParam int num,
+                                      @RequestParam int page,
+                                      @RequestParam(defaultValue="10") int size) {
+        int offset = (page - 1) * size;
+        List<ReplyDTO> list = replyService.getListPage(num, offset, size);
+
+        // 탈퇴한 회원 표시 처리
+        for (ReplyDTO dto : list) {
+            if (dto.getReplyerId() == null) {
+                dto.setReplyer("탈퇴한 회원");
+            }
+        }
+
+        return list;
+    }
+
+    @GetMapping(value = "/count", produces = "application/json")
+    @ResponseBody
+    public Map<String, Integer> getReplyCount(@RequestParam int num) {
+        int count = replyService.countReplies(num);
+        return Collections.singletonMap("count", count);
     }
 
     // 댓글 추가
@@ -38,9 +69,16 @@ public class ReplyController {
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     	String loginId = authentication.getName();
 
-    	replyDTO.setReplyer(loginId);
+    	// 1) member.id 가져오기
+        MemberDTO member = memberService.findByAllID(loginId);
 
+        // 2) ReplyDTO에 값 세팅
+        replyDTO.setReplyerId(member.getId());   // FK
+        replyDTO.setReplyer(loginId);            // 화면 표시용 캐시
+
+        // 3) 저장
         replyService.insert(replyDTO);
+        
         return "success";
     }
 
@@ -61,22 +99,4 @@ public class ReplyController {
         return "success";
     }
     
-    @GetMapping("/listPage")
-    @ResponseBody
-    public List<ReplyDTO> getListPage(@RequestParam int num,
-                                      @RequestParam int page,
-                                      @RequestParam(defaultValue="10") int size) {
-        int offset = (page - 1) * size;
-        return replyService.getListPage(num, offset, size);
-    }
-
-    @GetMapping(value = "/count", produces = "application/json")
-    @ResponseBody
-    public Map<String, Integer> getReplyCount(@RequestParam int num) {
-        int count = replyService.countReplies(num);
-        return Collections.singletonMap("count", count);
-    }
-
-
-
 }

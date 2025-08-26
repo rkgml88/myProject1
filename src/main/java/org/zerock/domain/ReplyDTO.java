@@ -12,4 +12,5 @@ public class ReplyDTO {
 	private String replyer;
 	private Date replydate;
 	private Date updatedate;
+	private Integer replyerId;
 }
