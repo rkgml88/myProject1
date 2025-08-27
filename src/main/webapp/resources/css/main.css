@@ -4,10 +4,83 @@ section{
     overflow-x: hidden;
 }
 .row1{
+	position: relative;
+}
+.edit{
+	position: absolute;
+	right: 30px;
+	top:30px;
+	z-index: 5;
+	padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: crimson;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    font-family: 'HANAMDAUM';
+    cursor: pointer;
+    font-size: 15px;
+    color: white;
+}
+.editModal{
+	display:none;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%; 
+	background:rgba(0,0,0,0.5);
+	align-items:center;
+	justify-content:center;
+	z-index:15;
+}
+.editModalContent{
+	background:#fff;
+	padding:20px;
+	border-radius:8px;
+	width:500px;
+	max-height: 80vh;   /* 화면 높이의 80%까지만 차지 */
+    overflow-y: auto;   /* 세로 스크롤 생성 */
+	text-align: center;
+}
+.editModalContent label, input{
+	display: block;
+}
+.editModalContent label{
+	margin: 3px;
+}
+.editModalContent input{
+	margin: 0 auto;
+	width: 75%;
+}
+.editModalContent input[type=text]{
+	margin-bottom: 5px;
+	border: 1px solid #ddd;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	padding: 10px;
+	border-radius: 20px;
+    box-sizing: border-box;
+    font-family: 'HANAMDAUM';
+    font-size: 12px;
+    text-align: center;
+}
+.save, .close{
+	padding: 7px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: rgb(16, 15, 80);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    font-family: 'HANAMDAUM';
+    cursor: pointer;
+    font-size: 12px;
+}
+.mainImg{
    display: flex;
    position: relative;
 }
-.row1 img{
+
+.mainImg img{
     width: 100%;
 }
 #mainImg1, #mainImg2 {
@@ -72,8 +145,11 @@ section{
 }
 .section2 img{
     margin: auto auto;
-} 
+}
 .row2{
+	position: relative;
+}
+#sigImg{
     display: grid;
     grid-template-columns: auto 500px;
     grid-template-areas: 'exp1 coffee';
@@ -118,12 +194,15 @@ section{
     top: 10px;
     left: 50%;
 }
-.row2 img{
+#sigImg img{
     grid-area: coffee;
     height: 320px;
     margin-right: 50%;
 }
 .row3{
+	position: relative;
+}
+#newImg{
     display: grid;
     grid-template-columns: 450px auto;
     grid-template-areas: 'smoothie exp2';
@@ -134,7 +213,7 @@ section{
     box-shadow: 5px 7px 5px gray;
     border-top: 2px dashed gray;
 }
-.row3 img{
+#newImg img{
     grid-area: smoothie;
     height: 340px;
     margin-left: 50%;
@@ -169,7 +248,6 @@ section{
 }
 .row4{
     text-align: center;
-    
     padding-top: 120px;
     padding-bottom: 120px;
 }
@@ -192,6 +270,9 @@ section{
     margin: 30px 10px;
     object-fit: cover;
     box-shadow: 0 5px 10px gray;
+}
+.dessertWrap{
+	position: relative;
 }
 .dessert{
     position: relative;

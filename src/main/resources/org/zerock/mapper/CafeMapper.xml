@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.CafeMapper">
+
+<!-- 메인 캐치프라이즈 이미지 -->
+<select id="getMainContent" resultType="org.zerock.domain.MainContentDTO">
+    SELECT * FROM mainImg WHERE id = 1
+</select>
+
+<update id="updateMainContent" parameterType="org.zerock.domain.MainContentDTO">
+    UPDATE mainImg
+    SET
+        img1 = #{img1},
+        title1 = #{title1},
+        desc1 = #{desc1},
+        img2 = #{img2},
+        title2 = #{title2},
+        desc2 = #{desc2},
+        updatedAt = NOW()
+    WHERE id = 1
+</update>
+
+<!-- 시그니처 이미지 -->
+<select id="getSigContent" resultType="org.zerock.domain.SigContentDTO">
+    SELECT * FROM sigImg WHERE id = 1
+</select>
+
+<update id="updateSigContent" parameterType="org.zerock.domain.SigContentDTO">
+    UPDATE sigImg
+    SET
+        img = #{img},
+        title = #{title},
+        des = #{des},
+        updatedAt = NOW()
+    WHERE id = 1
+</update>
+
+<!-- 신메뉴 이미지 -->
+<select id="getNewContent" resultType="org.zerock.domain.NewContentDTO">
+    SELECT * FROM newImg WHERE id = 1
+</select>
+
+<update id="updateNewContent" parameterType="org.zerock.domain.NewContentDTO">
+    UPDATE newImg
+    SET
+        img = #{img},
+        title = #{title},
+        des = #{des},
+        updatedAt = NOW()
+    WHERE id = 1
+</update>
+
+<!-- 디저트 이미지 -->
+<select id="getDessertContent" resultType="org.zerock.domain.DessertContentDTO">
+    SELECT * FROM dessertImg WHERE id = 1
+</select>
+
+<update id="updateDessertContent" parameterType="org.zerock.domain.DessertContentDTO">
+    UPDATE dessertImg
+    SET
+        img1 = #{img1},
+        title1 = #{title1},
+        img2 = #{img2},
+        title2 = #{title2},
+        img3 = #{img3},
+        title3 = #{title3},
+        img4 = #{img4},
+        title4 = #{title4},
+        img5 = #{img5},
+        title5 = #{title5},
+        updatedAt = NOW()
+    WHERE id = 1
+</update>
+
+</mapper>
