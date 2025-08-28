@@ -37,11 +37,13 @@ section{
 .editModalContent{
 	background:#fff;
 	padding:20px;
+	padding-bottom: 0;
 	border-radius:8px;
 	width:500px;
 	max-height: 80vh;   /* 화면 높이의 80%까지만 차지 */
     overflow-y: auto;   /* 세로 스크롤 생성 */
 	text-align: center;
+	position: relative;
 }
 .editModalContent label, input{
 	display: block;
@@ -63,6 +65,12 @@ section{
     font-family: 'HANAMDAUM';
     font-size: 12px;
     text-align: center;
+}
+.saveCloseBtn{
+	position: sticky;
+	bottom: 0;
+    background: #fff;   /* 버튼 뒤 내용 안 비치게 */
+    padding-bottom: 20px;
 }
 .save, .close{
 	padding: 7px;
@@ -334,13 +342,6 @@ section{
     }
 }
 @media screen and (max-width: 480px) {
-    #mainImg1 img {
-        content: url("../img/cafeMobileMain1.jpg");
-        
-    }
-    #mainImg2 img{
-        content: url("../img/cafeMobileMain2.jpg")
-    }
     .overlay{
         top: 40%;
         right: auto;
@@ -367,7 +368,7 @@ section{
     #afterB{
         right: -200%;
     }
-    .row2, .row3{
+    #sigImg, #newImg{
         height: 800px;
         display: flex;
     }
@@ -382,7 +383,7 @@ section{
         text-align: center; 
         margin: 0 auto;
     }
-    .row2 img, .row3 img{
+    #sigImg img, #newImg img{
         margin:auto auto;
     }
     #exp2 h2{

@@ -10,12 +10,14 @@
 <update id="updateMainContent" parameterType="org.zerock.domain.MainContentDTO">
     UPDATE mainImg
     SET
-        img1 = #{img1},
+        pcImg1 = #{pcImg1},
         title1 = #{title1},
         desc1 = #{desc1},
-        img2 = #{img2},
+        mobileImg1 = #{mobileImg1},
+        pcImg2 = #{pcImg2},
         title2 = #{title2},
         desc2 = #{desc2},
+        mobileImg2 = #{mobileImg2},
         updatedAt = NOW()
     WHERE id = 1
 </update>

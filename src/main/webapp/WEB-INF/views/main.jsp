@@ -71,32 +71,51 @@
 				    <div class="editModalContent">
 				        <h2>메인 이미지 & 문구 수정</h2>
 				        
-				        <label>메인 이미지1:</label>
-						<img id="preview1" src="${mainContent.img1}" alt="이미지1" style="width:150px;height:auto;">
-						<input type="file" id="fileInput1" accept="image/*"><br>
+				        <label>메인 이미지1(pc):</label>
+						<img id="preview1" src="${mainContent.pcImg1}" alt="이미지1" style="width:150px;height:auto;">
+						<input type="file" id="filePcInput1" accept="image/*"><br>
 						<!-- 기존 경로 hidden -->
-						<input type="hidden" id="existingImg1" value="${mainContent.img1}">
+						<input type="hidden" id="existingPcImg1" value="${mainContent.pcImg1}">
 						<input type="text" id="title1" value="${mainContent.title1}" placeholder="캐치프라이즈1 상단">
 						<input type="text" id="desc1" value="${mainContent.desc1}" placeholder="캐치프라이즈1 히단">
 						<hr>
 						
-						<label>메인 이미지2:</label>
-						<img id="preview2" src="${mainContent.img2}" alt="이미지2" style="width:150px;height:auto;">
-						<input type="file" id="fileInput2" accept="image/*"><br>
+						<label>메인 이미지2(pc):</label>
+						<img id="preview2" src="${mainContent.pcImg2}" alt="이미지2" style="width:150px;height:auto;">
+						<input type="file" id="filePcInput2" accept="image/*"><br>
 						<!-- 기존 경로 hidden -->
-						<input type="hidden" id="existingImg2" value="${mainContent.img2}">
+						<input type="hidden" id="existingPcImg2" value="${mainContent.pcImg2}">
 						<input type="text" id="title2" value="${mainContent.title2}" placeholder="캐치프라이즈2 상단">
 						<input type="text" id="desc2" value="${mainContent.desc2}" placeholder="캐치프라이즈2 히단">
-				        <hr>
+						<hr>
+						
+						<label>메인 이미지1(mobile):</label>
+						<img id="preview3" src="${mainContent.mobileImg1}" alt="이미지1" style="width:150px;height:auto;">
+						<input type="file" id="fileMobileInput1" accept="image/*"><br>
+						<!-- 기존 경로 hidden -->
+						<input type="hidden" id="existingMobileImg1" value="${mainContent.mobileImg1}">
+						<hr>
+						
+						<label>메인 이미지2(mobile):</label>
+						<img id="preview4" src="${mainContent.mobileImg2}" alt="이미지2" style="width:150px;height:auto;">
+						<input type="file" id="fileMobileInput2" accept="image/*"><br>
+						<!-- 기존 경로 hidden -->
+						<input type="hidden" id="existingMobileImg2" value="${mainContent.mobileImg2}">
 				        
-				        <button class="save" id="saveMainBtn">저장</button>
-				        <button class="close" id="closeMainBtn">취소</button>
+				        <div class="saveCloseBtn">
+					        <hr>
+					        <button class="save" id="saveMainBtn">저장</button>
+					        <button class="close" id="closeMainBtn">취소</button>
+				        </div>
 				    </div>
 				</div>
             	<div class="mainImg">
 	                <div id="mainImg1">
 	                    <!-- 슬라이드1 -->
-	                    <img src="${mainContent.img1}" alt="메인 이미지1">
+	                    <picture>
+						  <source media="(max-width:480px)" srcset="${mainContent.mobileImg1}">
+						  <img src="${mainContent.pcImg1}" alt="메인 이미지1">
+						</picture>
 	                    <div class="overlay"><!-- 캐치프라이즈 -->
 	                        <h1>${mainContent.title1}</h1>
 	                        <p>${mainContent.desc1}</p>
@@ -104,7 +123,10 @@
 	                </div>
 	                <div id="mainImg2">
 	                    <!-- 슬라이드2 -->
-	                    <img src="${mainContent.img2}" alt="메인 이미지2">
+	                    <picture>
+						  <source media="(max-width:480px)" srcset="${mainContent.mobileImg2}">
+						  <img src="${mainContent.pcImg2}" alt="메인 이미지2">
+						</picture>
 	                    <div class="overlay"><!-- 캐치프라이즈 -->
 	                        <h1>${mainContent.title2}</h1>
 	                        <p>${mainContent.desc2}</p>
@@ -136,10 +158,12 @@
 							<input type="hidden" id="sigexistingImg" value="${sigContent.img}">
 							<input type="text" id="sigtitle" value="${sigContent.title}" placeholder="시그니처 메뉴 이름">
 							<input type="text" id="sigdesc" value="${sigContent.des}" placeholder="시그니처 메뉴 설명">
-							<hr>
-					        
-					        <button class="save" id="saveSigBtn">저장</button>
-					        <button class="close" id="closeSigBtn">취소</button>
+							
+							<div class="saveCloseBtn">
+						        <hr>
+						        <button class="save" id="saveSigBtn">저장</button>
+						        <button class="close" id="closeSigBtn">취소</button>
+					        </div>
 					    </div>
 					</div>
 					<div id="sigImg">
@@ -163,19 +187,21 @@
 	            	<!-- 모달 -->
 					<div class="editModal" id="editNewModal">
 					    <div class="editModalContent">
-					        <h2>시그니처 이미지 & 문구 수정</h2>
+					        <h2>신메뉴 이미지 & 문구 수정</h2>
 					        
-					        <label>시그니처 이미지:</label>
+					        <label>신메뉴 이미지:</label>
 							<img id="newpreview" src="${newContent.img}" alt="신메뉴 이미지" style="width:150px;height:auto;">
 							<input type="file" id="newfileInput" accept="image/*"><br>
 							<!-- 기존 경로 hidden -->
 							<input type="hidden" id="newexistingImg" value="${newContent.img}">
 							<input type="text" id="newtitle" value="${newContent.title}" placeholder="신메뉴 이름">
 							<input type="text" id="newdesc" value="${newContent.des}" placeholder="신메뉴 설명">
-							<hr>
-					        
-					        <button class="save" id="saveNewBtn">저장</button>
-					        <button class="close" id="closeNewBtn">취소</button>
+							
+							<div class="saveCloseBtn">
+						        <hr>
+						        <button class="save" id="saveNewBtn">저장</button>
+						        <button class="close" id="closeNewBtn">취소</button>
+					        </div>
 					    </div>
 					</div>
                 	<div id="newImg">
@@ -242,10 +268,12 @@
 							<!-- 기존 경로 hidden -->
 							<input type="hidden" id="existingDessertImg5" value="${dessertContent.img5}">
 							<input type="text" id="titleDessert5" value="${dessertContent.title5}" placeholder="디저트 이름5">
-							<hr>
-					        
-					        <button class="save" id="saveDessertBtn">저장</button>
-					        <button class="close" id="closeDessertBtn">취소</button>
+							
+							<div class="saveCloseBtn">
+						        <hr>
+						        <button class="save" id="saveDessertBtn">저장</button>
+						        <button class="close" id="closeDessertBtn">취소</button>
+					        </div>
 					    </div>
 					</div>
                     <div data-aos="fade-up" data-aos-delay="500" class="dessert" id="dessertImg1">
@@ -316,8 +344,10 @@ function enableEditMainModal() {
     originalValues['desc2'] = document.getElementById('desc2').value;
 
     // 이미지 src 저장
-    originalValues['img1'] = document.getElementById('preview1').src;
-    originalValues['img2'] = document.getElementById('preview2').src;
+    originalValues['pcImg1'] = document.getElementById('preview1').src;
+    originalValues['pcImg2'] = document.getElementById('preview2').src;
+    originalValues['mobileImg1'] = document.getElementById('preview3').src;
+    originalValues['mobileImg2'] = document.getElementById('preview4').src;
 
     // 모달 열기
     document.getElementById('editMainModal').style.display = 'flex';
@@ -332,26 +362,40 @@ function cancelEditMainModal() {
     document.getElementById('desc2').value = originalValues['desc2'];
 
     // 이미지 src 복원
-    document.getElementById('preview1').src = originalValues['img1'];
-    document.getElementById('preview2').src = originalValues['img2'];
+    document.getElementById('preview1').src = originalValues['pcImg1'];
+    document.getElementById('preview2').src = originalValues['pcImg2'];
+    document.getElementById('preview3').src = originalValues['mobileImg1'];
+    document.getElementById('preview4').src = originalValues['mobileImg2'];
 
     // 파일 input 초기화
-    document.getElementById('fileInput1').value = "";
-    document.getElementById('fileInput2').value = "";
+    document.getElementById('filePcInput1').value = "";
+    document.getElementById('filePcInput2').value = "";
+    document.getElementById('fileMobileInput1').value = "";
+    document.getElementById('fileMobileInput2').value = "";
 
     // 모달 닫기
     document.getElementById('editMainModal').style.display = 'none';
 }
 
 // 이미지 미리보기
-document.getElementById('fileInput1').addEventListener('change', function() {
+document.getElementById('filePcInput1').addEventListener('change', function() {
     const file = this.files[0];
     if (file) document.getElementById('preview1').src = URL.createObjectURL(file);
 });
 
-document.getElementById('fileInput2').addEventListener('change', function() {
+document.getElementById('filePcInput2').addEventListener('change', function() {
     const file = this.files[0];
     if (file) document.getElementById('preview2').src = URL.createObjectURL(file);
+});
+
+document.getElementById('fileMobileInput1').addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) document.getElementById('preview3').src = URL.createObjectURL(file);
+});
+
+document.getElementById('fileMobileInput2').addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) document.getElementById('preview4').src = URL.createObjectURL(file);
 });
 
 // 버튼 이벤트 연결
@@ -361,20 +405,22 @@ document.getElementById('closeMainBtn').addEventListener('click', cancelEditMain
 // 저장 버튼 클릭 시 서버 업로드
 document.getElementById("saveMainBtn").addEventListener("click", function () {
     const formData = new FormData();
-    const file1 = document.getElementById("fileInput1").files[0];
-    const file2 = document.getElementById("fileInput2").files[0];
+    const file1 = document.getElementById("filePcInput1").files[0];
+    const file2 = document.getElementById("filePcInput2").files[0];
+    const file3 = document.getElementById("fileMobileInput1").files[0];
+    const file4 = document.getElementById("fileMobileInput2").files[0];
     
-    if (file1) {
-        formData.append("mainImg1", file1);
-    } else {
-        formData.append("existingImg1", document.getElementById("existingImg1").value);
-    }
+    if (file1) formData.append("pcImg1", file1);
+    else formData.append("existingPcImg1", document.getElementById("existingPcImg1").value);
 
-    if (file2) {
-        formData.append("mainImg2", file2);
-    } else {
-        formData.append("existingImg2", document.getElementById("existingImg2").value);
-    }
+    if (file2) formData.append("pcImg2", file2);
+    else formData.append("existingPcImg2", document.getElementById("existingPcImg2").value);
+
+    if (file3) formData.append("mobileImg1", file3);
+    else formData.append("existingMobileImg1", document.getElementById("existingMobileImg1").value);
+
+    if (file4) formData.append("mobileImg2", file4);
+    else formData.append("existingMobileImg2", document.getElementById("existingMobileImg2").value);
 
     formData.append("title1", document.getElementById("title1").value);
     formData.append("desc1", document.getElementById("desc1").value);

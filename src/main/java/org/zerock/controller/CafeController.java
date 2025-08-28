@@ -69,10 +69,14 @@ public class CafeController {
 		)
 		@ResponseBody
 		public Map<String, Object> updateMainContent(
-		        @RequestParam(value="mainImg1", required=false) MultipartFile file1,
-		        @RequestParam(value="mainImg2", required=false) MultipartFile file2,
-		        @RequestParam(value="existingImg1", required=false) String existingImg1,
-		        @RequestParam(value="existingImg2", required=false) String existingImg2,
+		        @RequestParam(value="pcImg1", required=false) MultipartFile pcImg1,
+		        @RequestParam(value="pcImg2", required=false) MultipartFile pcImg2,
+		        @RequestParam(value="mobileImg1", required=false) MultipartFile mobileImg1,
+		        @RequestParam(value="mobileImg2", required=false) MultipartFile mobileImg2,
+		        @RequestParam(value="existingPcImg1", required=false) String existingPcImg1,
+		        @RequestParam(value="existingPcImg2", required=false) String existingPcImg2,
+		        @RequestParam(value="existingMobileImg1", required=false) String existingMobileImg1,
+		        @RequestParam(value="existingMobileImg2", required=false) String existingMobileImg2,
 		        @RequestParam String title1,
 		        @RequestParam String desc1,
 		        @RequestParam String title2,
@@ -82,36 +86,50 @@ public class CafeController {
 		    String uploadDir = request.getServletContext().getRealPath("/resources/upload/");
 		    MainContentDTO dto = new MainContentDTO();
 
-		    // 파일 1 처리
-		    if (file1 != null && !file1.isEmpty()) {
-		        String fileName1 = System.currentTimeMillis() + "_" + file1.getOriginalFilename();
-		        File dest1 = new File(uploadDir, fileName1);
-		        file1.transferTo(dest1);
-		        dto.setImg1("/resources/upload/" + fileName1);
+		    // pcImg1
+		    if (pcImg1 != null && !pcImg1.isEmpty()) {
+		        String fileName = System.currentTimeMillis() + "_" + pcImg1.getOriginalFilename();
+		        pcImg1.transferTo(new File(uploadDir, fileName));
+		        dto.setPcImg1("/resources/upload/" + fileName);
 		    } else {
-		        dto.setImg1(existingImg1); // 기존 경로 유지
+		        dto.setPcImg1(existingPcImg1);
 		    }
 
-		    // 파일 2 처리
-		    if (file2 != null && !file2.isEmpty()) {
-		        String fileName2 = System.currentTimeMillis() + "_" + file2.getOriginalFilename();
-		        File dest2 = new File(uploadDir, fileName2);
-		        file2.transferTo(dest2);
-		        dto.setImg2("/resources/upload/" + fileName2);
+		    // pcImg2
+		    if (pcImg2 != null && !pcImg2.isEmpty()) {
+		        String fileName = System.currentTimeMillis() + "_" + pcImg2.getOriginalFilename();
+		        pcImg2.transferTo(new File(uploadDir, fileName));
+		        dto.setPcImg2("/resources/upload/" + fileName);
 		    } else {
-		        dto.setImg2(existingImg2); // 기존 경로 유지
+		        dto.setPcImg2(existingPcImg2);
 		    }
 
-		    // 문구 설정
+		    // mobileImg1
+		    if (mobileImg1 != null && !mobileImg1.isEmpty()) {
+		        String fileName = System.currentTimeMillis() + "_" + mobileImg1.getOriginalFilename();
+		        mobileImg1.transferTo(new File(uploadDir, fileName));
+		        dto.setMobileImg1("/resources/upload/" + fileName);
+		    } else {
+		        dto.setMobileImg1(existingMobileImg1);
+		    }
+
+		    // mobileImg2
+		    if (mobileImg2 != null && !mobileImg2.isEmpty()) {
+		        String fileName = System.currentTimeMillis() + "_" + mobileImg2.getOriginalFilename();
+		        mobileImg2.transferTo(new File(uploadDir, fileName));
+		        dto.setMobileImg2("/resources/upload/" + fileName);
+		    } else {
+		        dto.setMobileImg2(existingMobileImg2);
+		    }
+
+		    // 텍스트
 		    dto.setTitle1(title1);
 		    dto.setDesc1(desc1);
 		    dto.setTitle2(title2);
 		    dto.setDesc2(desc2);
 
-		    // DB 업데이트
 		    cafeService.updateMainContent(dto);
 
-		    // JSON 응답
 		    Map<String, Object> result = new HashMap<>();
 		    result.put("status", "success");
 		    return result;
