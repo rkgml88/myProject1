@@ -2,6 +2,7 @@
 section{
     padding-top: 110px;
     overflow-x: hidden;
+    min-height: 85vh;
 }
 #contain{
     padding: 3% 20% 10%;
@@ -88,7 +89,7 @@ input:focus{
 }
 @media screen and (max-width: 480px) {
     #contain{
-    	padding: 2.5% 5% 30%;
+    	padding: 2.5% 5%;
 	}
     #main{
     	padding: 20px 15px;

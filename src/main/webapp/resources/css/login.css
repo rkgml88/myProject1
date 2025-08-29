@@ -2,6 +2,11 @@
 section{
     padding-top: 110px;
     overflow-x: hidden;
+    min-height: 85vh;
+    background: url(../img/coffee-4398167_1280.jpg) no-repeat,
+                linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 100%);
+    background-size: cover;
+    background-position: center;
 }
 .loginWrap{
     display: flex;
@@ -9,10 +14,6 @@ section{
     justify-content: center;
     align-items: center;
     padding: 0% 25% 5%;
-    background: url(../img/coffee-4398167_1280.jpg) no-repeat,
-                linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 100%);
-    background-size: cover;
-    background-position: center;
 }
 #category{
     text-transform: uppercase;

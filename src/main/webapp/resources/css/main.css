@@ -322,17 +322,17 @@ section{
 }
 
 @media screen and (max-width: 1080px) {
-    .row2 img{
-        margin-right: 15%;
+    #sigImg img{
+        margin-right: 12%;
     }
-    .row3 img{
-        margin-left: 15%;
+    #newImg img{
+        margin-left: 12%;
     }
     #exp1 h2{
         left: 15%
     }
     #exp1 p{
-        left: 40%;
+        left: 30%;
     }
     #exp2 h2{
         right: 15%;

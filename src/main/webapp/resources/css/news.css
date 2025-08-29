@@ -2,6 +2,7 @@
 section{
     padding-top: 110px;
     overflow-x: hidden;
+    min-height: 85vh;
 }
 #banner{
     margin: 0%;

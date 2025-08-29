@@ -11,6 +11,7 @@ section{
     padding-top: 150px;
     font-family: 'HANAMDAUM';
     background-color: whitesmoke;
+    min-height: 85vh;
 }
 #mainT{
     background-color: rgb(16, 15, 80);

@@ -10,6 +10,7 @@
 	<meta name="_csrf_header" content="${_csrf.headerName}" />
     <title>IN COFFEE | 수정하기</title>
     <link rel="stylesheet" type="text/css" href="resources/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/footer.css">
     <link rel="stylesheet" type="text/css" href="resources/css/write.css">
     <script src="resources/js/nav.js"></script>
     <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css">
@@ -45,6 +46,8 @@
 		        <button type="button" onclick="goBack()" id="backBtn">목록</button>
 		    </div>
 	    </section>
+	    <!-- footer -->
+        <jsp:include page="/WEB-INF/views/footer.jsp" />
     </div>
 <script src="resources/js/write.js"></script>
 <script>
