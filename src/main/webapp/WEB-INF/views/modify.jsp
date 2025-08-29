@@ -39,8 +39,8 @@
 		        </div>
 		        <input class="box" id="title" type="text" name="title" value="${post.title}">
 		        <h3 class="subT">Content</h3>
-		        <div id="editor"></div>
 		        <p class="blue"><i class="bi bi-exclamation-square"></i> 제일 첫번째 이미지가 썸네일이 됩니다.</p>
+		        <div id="editor"></div>
 		        <button type="button" onclick="updatePost()" id="submitBtn">수정</button>
 		        <button type="button" onclick="goBack()" id="backBtn">목록</button>
 		    </div>

@@ -84,6 +84,13 @@ input:focus {
     border: none;
     color: white;
     font-size: 14px;
+    position: absolute;
+    right: 0%;
+    cursor: pointer;
+}
+#writeBtn a{
+	color: white;
+	font-family: 'HANAMDAUM';
 }
 #nowp, .nonp, .jump{
     padding: 10px 14px;
@@ -101,15 +108,6 @@ input:focus {
 }
 .jump{
 	padding: 10px 12px;
-}
-#writeBtn{
-    position: absolute;
-    right: 0%;
-    cursor: pointer;
-}
-#writeBtn a{
-	color: white;
-	font-family: 'HANAMDAUM';
 }
 .posts a{
 	color: black;
@@ -139,6 +137,10 @@ input:focus {
     }
     #category{
         margin-top: 0px;
+        font-size: 30px;
+    }
+    #category h1{
+    	margin: 30px 0 35px;
     }
     .ctgBtn{
         margin: 0 auto;
@@ -146,6 +148,9 @@ input:focus {
         word-break: keep-all; /* 단어 단위로 줄바꿈 */
         white-space: normal; /* 기본 줄바꿈 허용 */
         overflow-wrap: break-word; /* 긴 단어가 있으면 자동 줄바꿈 */
+    }
+    .ctgBtn div{
+        font-size: 14px;
     }
     #bottomRow{
         display: block;
@@ -155,18 +160,27 @@ input:focus {
         position: relative;
     }
     #search{
-        width: 100px;
+        padding: 7px;
+    	font-size: 12px;
     }
+    #searchBtn{
+	    padding: 0 7px;
+		font-size: 10px;
+	}
     .pagingImg{
         margin-bottom: 10px;
     }
     #nowp, .nonp, .jump{
-	    padding: 8px 12px;
+	    padding: 7px 11px;
 	    border: none;
 	    border-radius: 5px;
 	    font-size: 10px;
 	}
 	.jump{
-		padding: 8px 10px;
+		padding: 7px 9px;
+	}
+	#writeBtn{
+	    padding: 7px;
+	    font-size: 12px;
 	}
 }

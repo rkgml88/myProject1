@@ -206,11 +206,11 @@
 					</div>
                 	<div id="newImg">
 	            		<!-- 신메뉴 이미지_좌 -->
-	                    <img data-aos="fade-right" data-aos-delay="50" data-aos-duration="3000" src="${newContent.img}">
+	                    <img data-aos="fade-right" data-aos-duration="3000" src="${newContent.img}">
 	            		<!-- 신메뉴 설명 -->
 	                    <div class="explain" id="exp2">
 	                        <h2>${newContent.title} <span>| new</span></h2>
-	                        <p data-aos="fade-left" data-aos-delay="50" data-aos-duration="3000">
+	                        <p data-aos="fade-left" data-aos-duration="3000">
 	                            ${newContent.des}
 	                        </p>
 	                    </div>
@@ -276,35 +276,35 @@
 					        </div>
 					    </div>
 					</div>
-                    <div data-aos="fade-up" data-aos-delay="500" class="dessert" id="dessertImg1">
+                    <div data-aos="fade-up" class="dessert" id="dessertImg1">
                         <img id="scone" src="${dessertContent.img1}" alt="${dessertContent.title1}">
                         <div class="overlay2">
                             <p>${dessertContent.title1}</p>
                             <button><a href="dessert">more</a></button>
                         </div>
                     </div>
-                    <div data-aos="fade-down" data-aos-delay="500" class="dessert" id="dessertImg2">
+                    <div data-aos="fade-down" class="dessert" id="dessertImg2">
                         <img src="${dessertContent.img2}" alt="${dessertContent.title2}">
                         <div class="overlay2">
                             <p>${dessertContent.title2}</p>
                             <button><a href="dessert">more</a></button>
                         </div>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay="500" class="dessert" id="dessertImg3">
+                    <div data-aos="fade-up" class="dessert" id="dessertImg3">
                         <img src="${dessertContent.img3}" alt="${dessertContent.title3}">
                         <div class="overlay2">
                             <p>${dessertContent.title3}</p>
                             <button><a href="dessert">more</a></button>
                         </div>
                     </div>
-                    <div data-aos="fade-down" data-aos-delay="500" class="dessert" id="dessertImg4">
+                    <div data-aos="fade-down" class="dessert" id="dessertImg4">
                         <img src="${dessertContent.img4}" alt="${dessertContent.title4}">
                         <div class="overlay2">
                             <p>${dessertContent.title4}</p>
                             <button><a href="dessert">more</a></button>
                         </div>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay="500" class="dessert" id="dessertImg5">
+                    <div data-aos="fade-up" class="dessert" id="dessertImg5">
                         <img src="${dessertContent.img5}" alt="${dessertContent.title5}">
                         <div class="overlay2">
                             <p>${dessertContent.title5}</p>
@@ -325,7 +325,7 @@ const header = document.querySelector('meta[name="_csrf_header"]').content;
 AOS.init({
     duration: 2000, // 애니메이션 지속 시간 (ms)
     easing: 'ease-in-out-back',
-    once: false // 한 번만 실행
+    once: true // 한 번만 실행
     
 });
 

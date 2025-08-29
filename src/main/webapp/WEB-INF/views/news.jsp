@@ -72,7 +72,7 @@
 				        </div>
 				    </c:forEach>
 				    <c:if test="${empty noticeList}">
-				        <p>등록된 공지사항이 없습니다.</p>
+				        <p class="noContent">등록된 공지사항이 없습니다.</p>
 				    </c:if>
                 </div>
                 
@@ -89,12 +89,12 @@
 			                    		${post.title}
 		                    		</a>
 	                    		</td>
-			                    <td width="10%"><fmt:formatDate value="${post.postdate}" pattern="MM-dd"/></td>
+			                    <td class="date"><fmt:formatDate value="${post.postdate}" pattern="MM-dd"/></td>
 			                </tr>
 			            </c:forEach>
 			            <c:if test="${empty newsList}">
 			                <tr>
-			                    <td colspan="3" align="center">등록된 게시물이 없습니다.</td> 
+			                    <td class="noContent" colspan="3" align="center">등록된 게시물이 없습니다.</td> 
 			                </tr>
 			            </c:if>
                         </tbody>

@@ -77,3 +77,34 @@ section{
     font-size: 14px;
     color: darkblue;
 }
+
+@media screen and (max-width: 1080px) {
+	section{
+        padding: 110px 10% 10%;
+    }
+}
+@media screen and (max-width: 480px) {
+	section{
+        padding: 110px 5% 10%;
+    }
+    #mainT{
+	    padding: 15px;
+	    font-size: 20px;
+	    margin-bottom: 35px;
+	    border-bottom: 2px dashed white;
+	    width: 100%;
+	}
+    .subT{
+    	font-size: 16px;
+    	margin-bottom: 5px;
+    }
+    #submitBtn, #backBtn{
+	    padding: 10px 12px;
+	    font-size: 12px;
+	    font-weight: normal;
+	    margin-top: 30px;
+	}
+	.blue{
+		font-size: 12px;
+	}
+}

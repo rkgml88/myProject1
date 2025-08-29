@@ -77,7 +77,7 @@
                 	<input type="hidden" id="num" value="${post.num}">
                     <div id="replyList"></div> <!-- 댓글 목록 출력 -->
                     <sec:authorize access="!isAuthenticated()">
-                    	<p style="text-align:center;">로그인 후 댓글을 작성해주세요 :)</p>
+                    	<p id="noLogin">로그인 후 댓글을 작성해주세요 :)</p>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
 	                    <div id="myReplyWrap">

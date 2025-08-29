@@ -342,6 +342,18 @@ section{
     }
 }
 @media screen and (max-width: 480px) {
+	.edit{
+		right: 15px;
+		top: 15px;
+		padding: 7px;
+	    font-size: 12px;
+	}
+	.editModalContent{
+		width: 300px;
+	}
+	.editModalContent h2{
+		font-size: 18px;
+	}
     .overlay{
         top: 40%;
         right: auto;

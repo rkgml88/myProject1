@@ -26,6 +26,9 @@ td{
     padding: 20px 0;
     border-bottom: 1px solid #dbdbe8;
 }
+.date{
+	width: 10%;
+}
 .subT{
     border-bottom: 2px solid rgb(16, 15, 80);
     padding-bottom: 15px;
@@ -96,7 +99,7 @@ td{
     padding: 0 20px;
     transition: max-height 0.3s ease, padding 0.3s ease;
     background: #eeeeee;
-    font-size:14px;
+    font-size: 14px;
 }
 .accordion-item.active .accordion-content {
     max-height: 200px; /* 충분한 높이로 설정 */
@@ -104,4 +107,45 @@ td{
 }
 #postTableBody td{
 	text-align: center;
+}
+
+@media screen and (max-width: 1080px) {
+	.main{
+        padding: 3% 10% 10%;
+    }
+}
+@media screen and (max-width: 480px) {
+	.subT{
+	    padding-bottom: 10px;
+	}
+	.subT h3{
+		font-size: 15px;
+	}
+	.noContent{
+		font-size: 14px;
+	}
+	.accordion-header {
+	    padding: 15px 0;
+	    font-size: 14px;
+	}
+	.accordion-content{
+		font-size: 12px;
+	}
+	.modDelBtn{
+	    top: 12px;
+	    gap: 3px;
+	}
+	.modDelBtn button{
+	    padding: 5px;
+	    font-size: 10px;
+	}
+	td{
+	    padding: 15px 0;
+	    font-size: 14px;
+	}
+	.date{
+		width: 15%;
+		font-size: 12px;
+	}
+	
 }

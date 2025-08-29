@@ -50,7 +50,7 @@
                 <div class="postWrap">
 				    <c:choose>
 				        <c:when test="${empty coffeeList}">
-				            <div align="center">등록된 게시물이 없습니다.</div>
+				            <div class="noContent" align="center">등록된 게시물이 없습니다.</div>
 				        </c:when>
 				        <c:otherwise>
 				            <div id="postExist">

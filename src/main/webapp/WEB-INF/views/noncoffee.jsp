@@ -48,6 +48,15 @@
         input[type=checkbox]:checked {
             accent-color: rgb(16, 15, 80);
         }
+        
+        @media screen and (max-width: 480px) {
+        	.ctgBtn div{
+            	margin-bottom: 0px;
+        	}
+        	#noncoffeeType{
+        		margin-top: 10px;
+        	}
+        }
     </style>
 </head>
 <body>
