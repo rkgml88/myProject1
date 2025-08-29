@@ -1,5 +1,6 @@
 package org.zerock.service;
 
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,8 +61,8 @@ public class MemberService {
 	    memberMapper.updateMember(member);
 	}
 	
-	public void deleteMember(String username) {
-		memberMapper.deleteMember(username);
+	public void deleteMember(String allID) {
+		memberMapper.deleteMember(allID);
 	}
 
 	// 이메일 인증코드 발송
@@ -81,7 +82,7 @@ public class MemberService {
         return new VerificationCode(code, now);
     }
     
-    public String findIDByEmail(String name, String email) {
+    public List<MemberDTO> findIDByEmail(String name, String email) {
     	return memberMapper.findIDByEmail(name, email);
     }
     // coolsms SDK 초기화
@@ -114,7 +115,7 @@ public class MemberService {
         return new VerificationCode(code, now);
     }
     
-    public String findIDByTel(String name, String tel) {
+    public List<MemberDTO> findIDByTel(String name, String tel) {
         return memberMapper.findIDByTel(name, tel);
     }
     

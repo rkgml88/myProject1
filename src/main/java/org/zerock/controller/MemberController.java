@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -153,6 +154,10 @@ public class MemberController {
         String email = (String) responseObj.get("email");
         String name = (String) responseObj.get("name");
         String mobile = (String) responseObj.get("mobile");
+	     // 전화번호 포맷 통일 (하이픈 제거)
+	     if (mobile != null) {
+	         mobile = mobile.replaceAll("-", "");
+	     }
 
         // 3) DB 조회 및 신규 회원 처리
         MemberDTO member = memberService.findByNaverId(naverId);
@@ -287,23 +292,24 @@ public class MemberController {
     
     // 회원탈퇴
     @PostMapping("/deleteMember")
-    public String deleteMember(
-    		@RequestParam("username") String username, 
-    		HttpServletRequest request, 
-    		HttpServletResponse response, 
-    		Model model) {
-        memberService.deleteMember(username);
-        
-        // 로그아웃 처리
+    public String deleteMember(HttpServletRequest request,
+                               HttpServletResponse response,
+                               Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String loginId = auth.getName();  // username 또는 naverId 또는 googleId
+
+        memberService.deleteMember(loginId);
+
+        // 로그아웃 처리
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        
+
         model.addAttribute("message", "회원 탈퇴되셨습니다.");
         model.addAttribute("redirectUrl", "/main");
         return "alertRedirect";
     }
+
 
     @GetMapping("/findID")
     public String redirectFindIDGet() {
@@ -372,16 +378,16 @@ public class MemberController {
             return "alertRedirect";
         }
 
-        String username = null;
+        List<MemberDTO> members;
         if ("email".equals(verifyType)) {
-            username = memberService.findIDByEmail(name, email);
+            members = memberService.findIDByEmail(name, email);
         } else {
-            username = memberService.findIDByTel(name, tel);
+            members = memberService.findIDByTel(name, tel);
         }
 
-        if (username != null) {
-            model.addAttribute("username", username);
-            return "idResult";
+        if (members != null && !members.isEmpty()) {
+            model.addAttribute("members", members);
+            return "idResult";  // JSP에서 리스트로 출력
         } else {
             model.addAttribute("message", "해당 이름의 아이디가 없습니다.");
             model.addAttribute("redirectUrl", "/findID");

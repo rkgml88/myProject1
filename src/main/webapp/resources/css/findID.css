@@ -47,6 +47,10 @@ section{
 h3{
 	margin: 0;
 	font-size: 18px;
+	color: rgb(16, 15, 80);
+	word-break: keep-all; /* 단어 단위로 줄바꿈 */
+    white-space: normal; /* 기본 줄바꿈 허용 */
+    overflow-wrap: break-word; /* 긴 단어가 있으면 자동 줄바꿈 */
 }
 .explain{
 	font-size: 13px;
@@ -109,4 +113,58 @@ input:focus{
     margin-top: 0;
     margin-bottom: 5px;
 	color: crimson;
+}
+
+@media screen and (max-width: 1080px) {
+	#contain{
+    	padding: 5% 10%;
+	}
+	#main{
+	    padding: 40px 35px;
+	}
+}
+@media screen and (max-width: 480px) {
+    #contain{
+    	padding: 2.5% 5% 20%;
+	}
+    #main{
+    	padding: 20px 15px;
+    }
+    #authTabs{
+		margin-bottom: 20px;
+	}
+    #authTabs button{
+	    font-size: 15px;
+	}
+	#authTabs button.active {
+	  	border-bottom: 4px dashed rgb(16, 15, 80);
+	}
+	#telWrap, #emailWrap{
+	    padding: 15px;
+	}
+	h3{
+		font-size: 15px;
+	}
+	.explain{
+		font-size: 12px;
+	}
+	.tag{
+		font-size: 12px;
+		width: 75px;
+	}
+	.inp{
+		font-size: 12px;
+	}
+	#sendTelBtn, #sendEmailBtn{
+		padding: 5px;
+		font-size: 10px;
+		margin-top: 7px;
+	}
+	#bottomRow{
+	    margin-top: 20px;
+	}
+	#verifyBtn{
+		padding: 7px;
+		font-size: 12px;
+	}
 }

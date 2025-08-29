@@ -36,6 +36,19 @@
 	    font-size: 15px;
 	    text-align: center;
 	}
+	
+	@media screen and (max-width: 480px) {
+		#idWrap{
+		    padding: 15px;
+		}
+		#idWrap p{
+			font-size: 14px;
+		}
+		#username{
+			font-size: 12px;
+			padding: 7px;
+		}
+	}
     </style>
 </head>
 <body>

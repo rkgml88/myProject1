@@ -43,15 +43,15 @@
 </update>
 
 <delete id="deleteMember">
-	delete from member where username = #{username}
+	delete from member where username=#{allID} OR naverId=#{allID} OR googleId=#{allID}
 </delete>
 
-<select id="findIDByEmail" resultType="string">
-	select username from member where name=#{name} and email=#{email}
+<select id="findIDByEmail" resultType="org.zerock.domain.MemberDTO">
+	select username, naverId, googleId from member where name=#{name} and email=#{email}
 </select>
 
-<select id="findIDByTel" resultType="string">
-	select username from member where name=#{name} and tel=#{tel}
+<select id="findIDByTel" resultType="org.zerock.domain.MemberDTO">
+	select username, naverId, googleId from member where name=#{name} and tel=#{tel}
 </select>
 
 <update id="changePWByEmail">

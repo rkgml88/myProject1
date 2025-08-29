@@ -1,5 +1,7 @@
 package org.zerock.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.zerock.domain.MemberDTO;
@@ -21,11 +23,11 @@ public interface MemberMapper {
 	
 	void updateMember(MemberDTO member);
 
-	void deleteMember(String username);
+	void deleteMember(String allID);
 	
-	String findIDByEmail(@Param("name") String name, @Param("email") String email);
+	List<MemberDTO> findIDByEmail(@Param("name") String name, @Param("email") String email);
 	
-	String findIDByTel(@Param("name") String name, @Param("tel") String tel);
+	List<MemberDTO> findIDByTel(@Param("name") String name, @Param("tel") String tel);
 	
 	int changePWByEmail(
 			@Param("password") String password, 

@@ -87,8 +87,7 @@ input:focus{
 }
 #postBtn, #postDelBtn{
 	position: absolute;
-    bottom: 10px;
-    
+    bottom: 10px;    
     padding: 7px;
     border-radius: 5px;
     border: none;
@@ -147,5 +146,84 @@ input[type=checkbox]:checked {
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 5px;
-    color: darkred;
+    color: crimson;
+}
+
+@media screen and (max-width: 1080px) {
+	#contain{
+    	padding: 5% 10%;
+	}
+	#main{
+	    padding: 40px 35px;
+	}
+	#bottomRow{
+    	margin-top: 40px;
+	}
+}
+@media screen and (max-width: 480px) {
+	#contain{
+    	padding: 2.5% 5% 20%;
+	}
+    #main{
+    	padding: 20px 15px;
+    }
+    #category{
+	    text-underline-offset: 15px;
+	    font-size: 20px;
+	}
+	#nameWrap, #infoWrap{
+	    padding: 10px;
+	}
+	#nameWrap{
+		margin-bottom: 10px;
+	}
+	#name{
+		font-size: 15px;
+	}
+	#username{
+		font-size: 12px;
+	}
+    .inp{
+	    font-size: 12px;
+	    padding-left: 40px;
+	}
+	.email-icon, .tel-icon{
+		top: 9px;
+	    left: 15px;
+	    font-size: 17px;
+	}
+	#sample6_postcode, #sample6_address, #sample6_detailAddress{
+	    font-size: 12px;    
+	}
+	#postBtn, #postDelBtn{
+	    bottom: 9px;    
+	    padding: 5px;
+	    font-size: 10px;
+	}
+	#postBtn{
+		right: 45px;
+	}
+	#postDelBtn{
+		right: 10px;
+	}
+	#chk label{
+		font-size: 12px;
+		position: relative;
+		bottom: 2.5px;
+	}
+    #bottomRow{
+    	margin-top: 20px;
+	}
+	#editBtn, #cancelBtn{
+	    padding: 7px;
+	    font-size: 12px;
+	}
+	#deleteBtn{
+	    font-size: 12px;
+	}
+	.red{
+	    font-size: 10px;
+	    margin-bottom: 3px;
+	}
+	
 }

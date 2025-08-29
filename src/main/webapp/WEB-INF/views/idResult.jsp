@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,52 +11,7 @@
     <link rel="stylesheet" type="text/css" href="resources/css/idResult.css">
     <title>IN COFFEE | 아이디 찾기</title>
     <style>
-        section{
-            padding-top: 110px;
-            overflow-x: hidden;
-        }
-        #contain{
-            padding: 3% 20% 10%;
-            
-        }
-        #category{
-		    color: rgb(16, 15, 80);
-		    letter-spacing: 1.5px;
-		    font-size: 20px;
-		    text-align: center;
-		    width: 100%;
-		}
-        #main{
-            border: 2px solid rgb(16, 15, 80);
-            padding: 80px 70px 40px;
-        }
-        #resultWrap{
-            border: 1px solid #ddd;
-            padding: 20px;
-            box-sizing: border-box;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 15px;
-        }
-        #resultID{
-            text-align: center;
-        }
-        #bottomRow{
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-            gap: 4px;
-        }
-        #login, #findPW{
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            color: white;
-            background-color: rgb(16, 15, 80);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            font-family: 'HANAMDAUM';
-            cursor: pointer;
-            font-size: 15px;
-        }
+        
     </style>
 </head>
 <body>
@@ -69,7 +25,21 @@
             </div>
             <div id="main">
                 <div id="resultWrap">
-                    <p id="resultID">${username}</p>
+                	<ul id="resultID">
+					    <c:forEach var="member" items="${members}">
+					        <li>
+					            <c:if test="${not empty member.username}">
+					                <span class="blue">일반 아이디: </span>${member.username}
+					            </c:if>
+					            <c:if test="${not empty member.naverId}">
+					                <span class="blue">네이버 아이디: </span>${member.naverId}
+					            </c:if>
+					            <c:if test="${not empty member.googleId}">
+					                <span class="blue">구글 아이디: </span>${member.googleId}
+					            </c:if>
+					        </li>
+					    </c:forEach>
+					</ul>
                 </div>
                 <div id="bottomRow">
                     <a href="login" id="login">로그인</a>
@@ -79,7 +49,7 @@
     	</div>    
     </section>
     <!-- footer -->
-    <jsp:include page="/WEB-INF/views/footer.jsp" />s
+    <jsp:include page="/WEB-INF/views/footer.jsp" />
 </div>
 </body>
 </html>

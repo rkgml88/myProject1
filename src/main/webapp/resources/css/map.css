@@ -52,6 +52,11 @@ section{
     border: 1px solid #ddd;
     padding: 15px;
 }
+#mapExplain{
+	word-break: keep-all; /* 단어 단위로 줄바꿈 */
+    white-space: normal; /* 기본 줄바꿈 허용 */
+    overflow-wrap: break-word; /* 긴 단어가 있으면 자동 줄바꿈 */
+}
 #mapExplain p:first-child{
     margin-top: 0;
 }
@@ -71,4 +76,44 @@ section{
     font-family: 'HANAMDAUM';
     cursor: pointer;
     font-size: 14px;
+}
+
+@media screen and (max-width: 1080px) {
+	#contain{
+    	padding: 5% 10%;
+	}
+	#main{
+	    padding: 40px 35px;
+	}
+	#bottomRow{
+    	display: block;
+	}
+	#mapBtn{
+		margin-top: 15px;
+	}
+}
+@media screen and (max-width: 480px) {
+	section{
+        padding-top: 75px;
+    }
+    #banner h1{
+        margin: 0%;
+    }
+    #contain{
+    	padding: 10% 5% 20%;
+	}
+    #main{
+    	padding: 20px 15px;
+    }
+    #category{
+        margin-top: 0px;
+    }
+    #mapExplain{
+    	font-size: 12px;
+    }
+    #navigationBtn, #loadviewBtn{
+	    padding: 7px;
+	    border-radius: 12px;
+	    font-size: 10px;
+	}
 }
